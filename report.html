@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Issue</title>
+    <link rel="stylesheet" href="report.css">
+    <script>
+        const translations = {
+            en: {
+                policeHeader: "Report an Issue to the Police Department",
+                fireHeader: "Report an Issue to the Fire Department",
+                descriptionLabel: "Description of the Issue:",
+                uploadLabel: "Upload Supporting Files:",
+                categoryLabel: "Category of Issue:",
+                nextButton: "Next",
+                submitButton: "Submit Report",
+                successMessage: "Your report has been successfully submitted!"
+            }
+        };
+
+        let currentStep = 1;
+
+        function updatePageContent() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const department = urlParams.get('department');
+            const lang = urlParams.get('lang') || 'en';
+            const t = translations[lang];
+
+            document.getElementById('departmentHeader').textContent =
+                department === 'police' ? t.policeHeader : t.fireHeader;
+
+            document.getElementById('descriptionLabel').textContent = t.descriptionLabel;
+            document.getElementById('uploadLabel').textContent = t.uploadLabel;
+            document.getElementById('categoryLabel').textContent = t.categoryLabel;
+            document.getElementById('nextButton').textContent = t.nextButton;
+            document.getElementById('submitButton').textContent = t.submitButton;
+        }
+
+        function showStep(step) {
+            // Hide all steps
+            const steps = document.querySelectorAll('.step');
+            steps.forEach(s => s.style.display = 'none');
+
+            // Show current step
+            document.getElementById(`step${step}`).style.display = 'block';
+
+            // Update progress bar
+            const progressSteps = document.querySelectorAll('.progress-step');
+            progressSteps.forEach((stepDiv, index) => {
+                if (index < step) {
+                    stepDiv.classList.add('active');
+                } else {
+                    stepDiv.classList.remove('active');
+                }
+            });
+        }
+
+        function nextStep() {
+            if (currentStep < 3) {
+                currentStep++;
+                showStep(currentStep);
+            }
+        }
+
+        function showSuccessMessage(event) {
+            event.preventDefault();
+            document.getElementById('form').style.display = 'none';
+            document.querySelector('.success-message').style.display = 'block';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updatePageContent();
+            showStep(currentStep);
+        });
+    </script>
+</head>
+<body>
+    <header>MontWatch</header>
+
+    <!-- Progress Indicator -->
+    <div class="progress-bar">
+        <div class="progress-step active">Step 1: Details</div>
+        <div class="progress-step">Step 2: Upload</div>
+        <div class="progress-step">Step 3: Review & Submit</div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message" style="display: none;">Your report has been successfully submitted!</div>
+
+    <!-- Report Form -->
+    <form id="form" onsubmit="showSuccessMessage(event)">
+        <h1 id="departmentHeader">Report Environmental Issue</h1>
+
+        <!-- Step 1 -->
+        <div id="step1" class="step">
+            <div>
+                <label id="categoryLabel" for="category">Category of Issue:</label>
+                <select id="category" name="category" required>
+                    <option value="">-- Select a Category --</option>
+                    <option value="Noise-pollution">Noise Pollution</option>
+                    <option value="fire-hazard">Fire Hazard</option>
+                    <option value="environment">Environmental Hazard</option>
+                </select>
+            </div>
+            <div>
+                <label id="descriptionLabel" for="description">Description of the Issue:</label>
+                <textarea id="description" name="description" rows="5" required></textarea>
+            </div>
+            <button type="button" id="nextButton" onclick="nextStep()">Next</button>
+        </div>
+
+        <!-- Step 2 -->
+        <div id="step2" class="step" style="display: none;">
+            <div>
+                <label id="uploadLabel" for="fileUpload">Upload Supporting Files:</label>
+                <p id="fileHint">(Accepted formats: Images, Videos, PDFs)</p>
+                <input type="file" id="fileUpload" name="files" accept="image/*,video/*,.pdf" multiple>
+            </div>
+            <button type="button" id="nextButton" onclick="nextStep()">Next</button>
+        </div>
+
+        <!-- Step 3 -->
+        <div id="step3" class="step" style="display: none;">
+            <p>Please review your details and submit the report.</p>
+            <button id="submitButton" type="submit">Submit Report</button>
+        </div>
+    </form>
+</body>
+</html>

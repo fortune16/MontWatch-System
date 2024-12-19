@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right,#00796b, #33a396); /* Beige to soft green */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background: linear-gradient(to bottom, #e5f6f1, #e5f6f1);  /* Wooden-style gradient */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgb(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    color: #000000; /* Dark earthy tone for text */
+}
+
+.login-container h1 {
+    text-align: center;
+    color: #000000; /* Main text color */
+    margin-bottom: 20px;
+}
+
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+.form-input label {
+    display: block;
+    margin-bottom: 5px;
+    color: #003330; /* Brown for labels */
+}
+
+.form-input input {
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid #e5fff9; 
+    border-radius: 5px;
+    box-sizing: border-box; 
+    transition: border-color 0.3s ease;
+    background-color: #ffffff; 
+}
+
+.form-input input:focus {
+    border-color: #33a396; /* Green focus */
+    outline: none;
+}
+
+.error-message {
+    color: #d84315;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+error-message.show {
+    display: block; /* Show only when an error occurs */
+}
+
+.login-button, .skip-button {
+    background-color: #33a396; /* Earthy green */
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover, .skip-button:hover {
+    background-color: #00796b; /* Darker green hover effect */
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.register-link a {
+    color: #d11f00; /* Greenish link */
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 10px;
+    }
+    .form-input input {
+        padding: 8px;
+    }
+}

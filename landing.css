@@ -1,0 +1,167 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #e0f2f1, #b2dfdb); /* Light teal gradient */
+    color: #004d40;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Top Header */
+header {
+    background-color: #00796b; /* Dark green */
+    color: #ffffff;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo Section */
+.logo-section {
+    text-align: center;
+    margin: 30px auto 20px;
+}
+
+.montwatch-logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.logo-section h2 {
+    font-size: 1.5rem;
+    color: #004d40;
+}
+
+/* Content Cards Section */
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    text-align: center;
+}
+
+.card-icon {
+    background-color: #00796b; /* Green icon background */
+    color: #ffffff;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    font-size: 1.5rem;
+}
+
+.card-content h3 {
+    margin: 10px 0;
+    color: #004d40;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.card-button {
+    display: inline-block;
+    background-color: #00796b;
+    color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.card-button:hover {
+    background-color: #004d40;
+}
+
+/* Language Selector */
+.language-card {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.language-card label {
+    display: block;
+    margin-bottom: 10px;
+    color: #004d40;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.language-card select {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: 1px solid #b2dfdb;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #004d40;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.language-card select:focus {
+    border-color: #00796b;
+    outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content {
+        width: 100%;
+    }
+
+    .card, .language-card {
+        width: 95%;
+    }
+}
+
+/* Logout Button Section */
+.logout-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.logout-button {
+    background-color: #d9534f; /* Red color for logout */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.logout-button:hover {
+    background-color: #c9302c; /* Darker red on hover */
+    transform: scale(1.05); /* Slight zoom */
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MontWatch Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>MontWatch Login</h1>
+        <form id="loginForm">
+            <div class="form-input">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username">
+            </div>
+            <div class="form-input">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+            </div>
+            <p class="error-message" id="errorMessage" style="display: none;"></p>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+        <button class="skip-button" onclick="window.location.href='landing.html'">Skip Login</button>
+        <div class="register-link">
+            <p>Don't have an account? <a href="register.html">Register here</a></p>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

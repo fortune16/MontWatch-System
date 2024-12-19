@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MontWatch Landing</title>
+    <link rel="stylesheet" href="landing.css">
+    <script>
+        const translations = {
+            en: {
+                welcome: "Welcome, {name}!",
+                policeButton: "Report to Police",
+                fireButton: "Report to Fire Department",
+                language: "Choose Language",
+                logout: "Logout"
+            },
+            es: {
+                welcome: "¡Bienvenido, {name}!",
+                policeButton: "Reportar a la Policía",
+                fireButton: "Reportar al Departamento de Bomberos",
+                language: "Elige Idioma",
+                logout: "Cerrar sesión"
+            }
+        };
+
+        // Hardcode your username here
+        const userName = "Firdous"; // Replace this with your name
+
+        function switchLanguage(lang) {
+            const t = translations[lang];
+            const welcomeMessage = t.welcome.replace("{name}", userName);
+            document.getElementById("welcome").textContent = welcomeMessage;
+            document.getElementById("policeTitle").textContent = t.policeButton;
+            document.getElementById("fireTitle").textContent = t.fireButton;
+            document.getElementById("languageLabel").textContent = t.language;
+            document.getElementById("logoutButton").textContent = t.logout;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => switchLanguage("en"));
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        MontWatch
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- MontWatch Logo Section -->
+        <aside class="logo-section">
+            <img src="logo1.png" alt="MontWatch Logo" class="montwatch-logo">
+            <h2 id="welcome">Welcome!</h2>
+        </aside>
+
+        <!-- Action Cards -->
+        <section class="content">
+            <!-- Report to Police -->
+            <div class="card">
+                <div class="card-icon">📋</div>
+                <div class="card-content">
+                    <h3 id="policeTitle">Report to Police</h3>
+                </div>
+                <a href="report.html?department=police" class="card-button">View Details</a>
+            </div>
+
+            <!-- Report to Fire Department -->
+            <div class="card">
+                <div class="card-icon">📋</div>
+                <div class="card-content">
+                    <h3 id="fireTitle">Report to Fire Department</h3>
+                </div>
+                <a href="report.html?department=fire" class="card-button">View Details</a>
+            </div>
+
+            <!-- Language Selector -->
+            <div class="language-card">
+                <label id="languageLabel" for="language">Choose Language:</label>
+                <select id="language" onchange="switchLanguage(this.value)">
+                    <option value="en" selected>English</option>
+                    <option value="es">Español</option>
+                </select>
+            </div>
+
+            <!-- Logout Button -->
+            <div class="logout-section">
+                <button id="logoutButton" class="logout-button" onclick="logout()">Logout</button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Logout function
+        function logout() {
+            window.location.href = "login.html"; // Redirect to login page
+        }
+    </script>
+</body>
+</html>

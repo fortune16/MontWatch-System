@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MontWatch Register</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>MontWatch Register</h1>
+        <form id="registerForm">
+            <div class="form-input">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name">
+            </div>
+            <div class="form-input">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+            </div>
+            <div class="form-input">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Choose a password">
+            </div>
+            <p class="error-message" id="errorMessage" style="display: none; color: red;"></p>
+            <button type="submit" class="login-button">Register</button>
+        </form>
+        <button class="skip-button" onclick="window.location.href='login.html'">Back to Login</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bcrypt.js/2.4.3/bcrypt.min.js"></script>
+    <script src="register.js"></script>
+</body>
+</html>
