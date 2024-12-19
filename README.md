@@ -1,0 +1,1 @@
+This a project that enables users at Montclair state university campus to report crimes like noise making, burning and smomking around the school environment. It was created by team Future X as a class project.
